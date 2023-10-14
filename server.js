@@ -1,9 +1,9 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
 const mongodb = require('./db/connections');
 const bodyParser = require('body-parser');
 
+const app = express();
 const port = process.env.PORT || 3000;
 
 app
@@ -15,9 +15,9 @@ app
     })
     .use('/', require('./routes'));
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-})
+// app.listen(port, () => {
+//     console.log(`Server is running on port ${port}`);
+// })
 
 
 mongodb.initDb((err) => {
