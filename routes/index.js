@@ -5,5 +5,6 @@ const routes = require('express').Router();
 // routes.get('/awesome', myController.superAwesomeFunction);
 
 routes.use('/clients', require('./clients'));
+routes.use('/inventory', require('./inventory'));
 
 module.exports = routes;
