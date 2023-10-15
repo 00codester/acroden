@@ -1,10 +1,31 @@
 GET http://localhost:3000 HTTP/1.1
 
 ###
-GET http://localhost:3000/awesome HTTP/1.1
+//GET http://localhost:3000/awesome HTTP/1.1
 
 ###
-GET https://acroden.onrender.com HTTP/1.1
+GET https://acroden.onrender.com/clients HTTP/1.1
 
 ###
-GET https://acroden.onrender.com/awesome HTTP/1.1
+GET https://acroden.onrender.com/clients/6522321173282f9516823e99 HTTP/1.1
+
+###
+POST https://acroden.onrender.com/clients HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Nakoa",
+    "lastName": "Karl",
+    "email": "nakoakarl@gmail.com",
+    "password": "password",
+    "items4Sale": [""]  
+}
+
+###
+GET https://acroden.onrender.com/inventory HTTP/1.1
+
+###
+GET https://acroden.onrender.com/inventory/652b5616ce3db25aab4d86dd HTTP/1.1
+
+###
+//GET https://acroden.onrender.com/awesome HTTP/1.1
