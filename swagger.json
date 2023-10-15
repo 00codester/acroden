@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Description",
+    "title": "Acroden API",
+    "description": "API to add clients and items the clients want to sell",
     "version": "1.0.0"
   },
   "host": "acroden.onrender.com",
@@ -10,9 +10,24 @@
   "schemes": [
     "https"
   ],
+  "tags": [
+    {
+      "name": "clients",
+      "description": "operations about clients or users"
+    },
+    {
+      "name": "inventory",
+      "description": "operations related to items for sale"
+    },
+    {
+      "name": "Not Yet Implemented",
+      "description": "Future functionality for site"
+    }
+  ],
   "paths": {
     "/clients/": {
       "get": {
+        "tags":["clients"],
         "description": "",
         "produces": [
           "application/json"
@@ -27,7 +42,8 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": ["clients"],
+        "description": "Client creates an account",
         "parameters": [
           {
             "name": "body",
@@ -63,7 +79,8 @@
     },
     "/clients/{id}": {
       "get": {
-        "description": "",
+        "tags":["clients"],
+        "description": "Gets a client or user by Id",
         "produces": [
           "application/json"
         ],
@@ -87,7 +104,8 @@
     },
     "/inventory/": {
       "get": {
-        "description": "",
+        "tags":["inventory"],
+        "description": "gets a list of all the items for sale",
         "produces": [
           "application/json"
         ],
@@ -103,7 +121,8 @@
     },
     "/inventory/{id}": {
       "get": {
-        "description": "",
+        "tags":["inventory"],
+        "description": "gets a single item to display",
         "produces": [
           "application/json"
         ],
