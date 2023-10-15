@@ -142,6 +142,36 @@
             "description": "Internal Server Error"
           }
         }
+      },
+      "delete":{
+        "tags":["Not Yet Implemented"],
+        "description": "deletes an item for sale",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put":{
+        "tags":["Not Yet Implemented"],
+        "description": "updates an item for sale",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     }
   }
