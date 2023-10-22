@@ -1,7 +1,37 @@
-GET http://localhost:3000 HTTP/1.1
+GET http://localhost:3000/clients HTTP/1.1
+
+###
+GET http://localhost:3000/clients/652b655fc10e0c27f0b13b60 HTTP/1.1
 
 ###
 //GET http://localhost:3000/awesome HTTP/1.1
+
+###
+POST http://localhost:3000/clients HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Arnold",
+    "lastName": "Karl",
+    "email": "arnoldkarl@gmail.com",
+    "password": "password",
+    "items4Sale": [""]  
+}
+
+###
+PUT http://localhost:3000/clients/6534a69aac9d30ee7d9ad513 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "",
+    "lastName": "Karl",
+    "email": "arnoldvonkarl",
+    "password": "password",
+    "items4Sale": [""]
+}
+
+###
+DELETE http://localhost:3000/clients/6534a540fe4931275d862c0 HTTP/1.1
 
 ###
 GET https://acroden.onrender.com/clients HTTP/1.1
@@ -20,6 +50,21 @@ Content-Type: application/json
     "password": "password",
     "items4Sale": [""]  
 }
+
+###
+PUT https://acroden.onrender.com/clients/6522321173282f9516823e99 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Nakoa",
+    "lastName": "Karl",
+    "email": "nakoagangstakarl@gmail.com",
+    "password": "password",
+    "items4Sale": [""]
+}
+
+###
+DELETE https://acroden.onrender.com/clients/6522321173282f9516823e99 HTTP/1.1
 
 ###
 GET https://acroden.onrender.com/inventory HTTP/1.1

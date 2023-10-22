@@ -51,6 +51,45 @@ const addNewClient = async(req, res) => {
     }
 };
 
+const updateClient = async(req, res) => {
+    try{
+        const userId = new ObjectId(req.params.id);
+
+        const client = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password,
+            items4Sale: [],
+        };
+        const result = await mongodb.getDb().db().collection('clients').replaceOne({_id: userId}, client);
+        console.log(result);
+        if(result.modifiedCount > 0){
+            res.status(204).send();
+        } else {
+            res.status(500).json({err});
+        }
+    } catch (err){
+        res.status(500).json({err});
+    }
+};
+
+const deleteClient = async(req, res) => {
+    try{
+        const userId = new ObjectId(req.params.id);
+
+        const result = await mongodb.getDb().db().collection('clients').deleteOne({_id: userId}, true);
+        console.log(result);
+        if(result.deletedCount > 0){
+            res.status(200).send();
+        } else{
+            res.status(500).json(response.error || 'Error occured while deleting contact');
+        }
+    } catch(err){
+        res.status(500).json({err});
+    }
+};
+
 //Inventory Controllers
 const getAllForSale = async(req, res) => {
     try {
@@ -87,6 +126,8 @@ module.exports = {
     getAllClients,
     getSingleClient,
     addNewClient,
+    updateClient,
+    deleteClient,
     getAllForSale,
     getSingleItemForSale
 };
