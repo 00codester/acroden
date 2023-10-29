@@ -60,6 +60,9 @@
                 "email": {
                   "example": "any"
                 },
+                "phone": {
+                  "example": "1234567980"
+                },
                 "password": {
                   "example": "any"
                 }
@@ -151,6 +154,9 @@
                 },
                 "email": {
                   "example": "any"
+                },
+                "phone": {
+                  "example": "1234567890"
                 },
                 "password": {
                   "example": "any"

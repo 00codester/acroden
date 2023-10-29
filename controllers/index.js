@@ -37,6 +37,7 @@ const addNewClient = async(req, res) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
+            phone: req.body.phone,
             password: req.body.password,
             items4Sale: [],
         };
@@ -59,6 +60,7 @@ const updateClient = async(req, res) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
+            phone: req.body.phone,
             password: req.body.password,
             items4Sale: [],
         };
