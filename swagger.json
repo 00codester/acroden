@@ -262,7 +262,7 @@
                   "example": "any"
                 },
                 "price": {
-                  "example": "any",
+                  "example": 100,
                   "type": "int32"
                 },
                 "location": {
@@ -305,7 +305,7 @@
                     "example": "any"
                   },
                   "price": {
-                    "example": "any",
+                    "example": 100,
                     "type": "int32"
                   },
                   "location": {
