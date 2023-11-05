@@ -149,14 +149,14 @@ const updateInventoryItem = async(req, res) => {
     try{
         const itemId = new ObjectId(req.params.id);
 
-        const Item = {
+        const item = {
             itemName: req.body.itemName,
             price: req.body.price,
             location: req.body.location,
             description: req.body.description,
             sold: req.body.sold
         };
-        const result = await mongodb.getDb().db().collection('inventory').replaceOne({_id: itemId}, inventory);
+        const result = await mongodb.getDb().db().collection('inventory').replaceOne({_id: itemId}, item);
         console.log(result);
         if(result.modifiedCount > 0){
             res.status(204).send();
