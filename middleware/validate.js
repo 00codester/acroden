@@ -23,10 +23,10 @@ const saveClient = (req, res, next) => {
 const saveItem = (req, res, next) => {
     const valRule = {
         itemName: 'required|string',
-        price: 'required|int',
+        price: 'required|Int32',
         location: 'required|string',
         description: 'required|string',
-        sold: 'required|boolean'
+        sold: 'required|Boolean'
     };
     validator(req.body, valRule, {}, (err, status) =>{
         if(!status){
