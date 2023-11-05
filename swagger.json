@@ -217,10 +217,18 @@
         }
       },
       "delete":{
-        "tags":["Not Yet Implemented"],
+        "tags":["inventory"],
         "description": "deletes an item for sale",
         "produces": [
           "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
@@ -232,8 +240,57 @@
         }
       },
       "put":{
-        "tags":["Not Yet Implemented"],
+        "tags":["inventory"],
         "description": "updates an item for sale",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemName": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any",
+                  "type": "int32"
+                },
+                "location": {
+                  "example": "Utah"
+                },
+                "description": {
+                  "example": "anything"
+                },
+                "sold": {
+                  "example": "false",
+                  "type": "Boolean"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post":{
+        "tags":["inventory"],
+        "description": "adds an item for sale",
         "produces": [
           "application/json"
         ],
@@ -241,6 +298,34 @@
           "200": {
             "description": "OK"
           },
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "itemName": {
+                    "example": "any"
+                  },
+                  "price": {
+                    "example": "any",
+                    "type": "int32"
+                  },
+                  "location": {
+                    "example": "Utah"
+                  },
+                  "description": {
+                    "example": "anything"
+                  },
+                  "sold": {
+                    "example": "false",
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          ],
           "500": {
             "description": "Internal Server Error"
           }

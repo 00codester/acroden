@@ -124,6 +124,66 @@ const getSingleItemForSale = async(req, res) => {
     }
 };
 
+const addNewItemForSale = async(req, res) => {
+    try {
+        const newItem = {
+            itemName: req.body.itemName,
+            price: req.body.price,
+            location: req.body.location,
+            description: req.body.description,
+            sold: req.body.sold
+        };
+        //const newClient = new userSchema(req.body);
+        const result = await mongodb.getDb().db().collection('inventory').insertOne(newItem);
+        if(result.acknowledged){
+            res.status(201).json(result);
+        } else {
+            res.status(500).json(response.error || 'Error occured while creating client');
+        }
+    } catch(err){
+        res.status(500).json({ err });
+    }
+};
+
+const updateInventoryItem = async(req, res) => {
+    try{
+        const itemId = new ObjectId(req.params.id);
+
+        const Item = {
+            itemName: req.body.itemName,
+            price: req.body.price,
+            location: req.body.location,
+            description: req.body.description,
+            sold: req.body.sold
+        };
+        const result = await mongodb.getDb().db().collection('inventory').replaceOne({_id: itemId}, inventory);
+        console.log(result);
+        if(result.modifiedCount > 0){
+            res.status(204).send();
+        } else {
+            res.status(500).json({err});
+        }
+    } catch (err){
+        res.status(500).json({err});
+    }
+};
+
+const deleteInventoryItem = async(req, res) => {
+    try{
+        const itemId = new ObjectId(req.params.id);
+
+        const result = await mongodb.getDb().db().collection('inventory').deleteOne({_id: itemId}, true);
+        console.log(result);
+        if(result.deletedCount > 0){
+            res.status(200).send();
+        } else{
+            res.status(500).json(response.error || 'Error occured while deleting contact');
+        }
+    } catch(err){
+        res.status(500).json({err});
+    }
+};
+
 module.exports = {
     //awesomeFunction,
     //superAwesomeFunction,
@@ -133,5 +193,8 @@ module.exports = {
     updateClient,
     deleteClient,
     getAllForSale,
-    getSingleItemForSale
+    getSingleItemForSale,
+    addNewItemForSale,
+    updateInventoryItem,
+    deleteInventoryItem
 };
