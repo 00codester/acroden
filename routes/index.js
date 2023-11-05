@@ -21,7 +21,7 @@ routes.use('/', require('./swagger'));
 
   
   // auth router attaches /login, /logout, and /callback routes to the baseURL
-routes.use(auth(config));
+//routes.use(auth(config));
   
   // req.isAuthenticated is provided from the auth router
 routes.get('/', (req, res) => {
