@@ -2,6 +2,7 @@ const express = require('express');
 const routes= express.Router();
 
 const controllerFile = require('../controllers');
+const validation = require('../middleware/validate');
 
 routes.get('/', controllerFile.getAllForSale);
 routes.get('/:id', validation.idLengthCheck, controllerFile.getSingleItemForSale);
