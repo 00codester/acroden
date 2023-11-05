@@ -294,11 +294,7 @@
         "produces": [
           "application/json"
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "parameters": [
+        "parameters": [
             {
               "name": "body",
               "in": "body",
