@@ -185,8 +185,6 @@ const deleteInventoryItem = async(req, res) => {
 };
 
 module.exports = {
-    //awesomeFunction,
-    //superAwesomeFunction,
     getAllClients,
     getSingleClient,
     addNewClient,

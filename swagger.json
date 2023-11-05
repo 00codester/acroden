@@ -190,6 +190,49 @@
             "description": "Internal Server Error"
           }
         }
+      },
+      "post":{
+        "tags":["inventory"],
+        "description": "adds an item for sale",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "itemName": {
+                    "example": "any"
+                  },
+                  "price": {
+                    "example": 100,
+                    "type": "int32"
+                  },
+                  "location": {
+                    "example": "Utah"
+                  },
+                  "description": {
+                    "example": "anything"
+                  },
+                  "sold": {
+                    "example": "false",
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/inventory/{id}": {
@@ -283,49 +326,6 @@
           "200": {
             "description": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post":{
-        "tags":["inventory"],
-        "description": "adds an item for sale",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-            {
-              "name": "body",
-              "in": "body",
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "itemName": {
-                    "example": "any"
-                  },
-                  "price": {
-                    "example": 100,
-                    "type": "int32"
-                  },
-                  "location": {
-                    "example": "Utah"
-                  },
-                  "description": {
-                    "example": "anything"
-                  },
-                  "sold": {
-                    "example": "false",
-                    "type": "Boolean"
-                  }
-                }
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            },
           "500": {
             "description": "Internal Server Error"
           }
