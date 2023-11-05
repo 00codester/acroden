@@ -1,4 +1,7 @@
-GET http://localhost:3000/clients HTTP/1.1
+GET http://localhost:3000/clients/ HTTP/1.1
+
+###
+GET http://localhost:3000/login HTTP/1.1
 
 ###
 GET http://localhost:3000/clients/652b655fc10e0c27f0b13b60 HTTP/1.1
@@ -14,8 +17,9 @@ Content-Type: application/json
     "firstName": "Arnold",
     "lastName": "Karl",
     "email": "arnoldkarl@gmail.com",
+    "phone": "1234567890",
     "password": "password",
-    "items4Sale": [""]  
+    "items4Sale": []  
 }
 
 ###
@@ -26,6 +30,7 @@ content-type: application/json
     "firstName": "",
     "lastName": "Karl",
     "email": "arnoldvonkarl",
+    "phone": "1234567890",
     "password": "password",
     "items4Sale": [""]
 }

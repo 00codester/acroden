@@ -1,5 +1,6 @@
 const mongodb = require('../db/connections.js');
 const ObjectId = require('mongodb').ObjectId;
+//const userSchema = require('../models/userschema.js');
 
 //Client Controllers
 const getAllClients = async(req, res) => {
@@ -41,6 +42,7 @@ const addNewClient = async(req, res) => {
             password: req.body.password,
             items4Sale: [],
         };
+        //const newClient = new userSchema(req.body);
         const result = await mongodb.getDb().db().collection('clients').insertOne(newClient);
         if(result.acknowledged){
             res.status(201).json(result);
